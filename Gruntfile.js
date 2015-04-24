@@ -271,10 +271,10 @@ module.exports = function(grunt) {
         }
       },
       buildIOS: {
-        command: 'cordova build ios'
+        command: 'cordova platform add ios && cordova build ios'
       },
       buildAndroid: {
-        command: 'cordova build android'
+        command: 'cordova platform add android && build android'
       }
     }
   });
