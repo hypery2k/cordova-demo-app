@@ -274,7 +274,7 @@ module.exports = function(grunt) {
         command: 'cordova platform add ios && cordova build ios'
       },
       buildAndroid: {
-        command: 'cordova platform add android && build android'
+        command: 'cordova platform add android && cordova build android'
       }
     }
   });
