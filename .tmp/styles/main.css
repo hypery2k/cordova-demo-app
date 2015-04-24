@@ -1,0 +1,272 @@
+/* line 1, ../../src/styles/main.scss */
+
+footer {
+  padding: 5px;
+}
+
+/* line 5, ../../src/styles/main.scss */
+
+.row {
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+/* line 11, ../../src/styles/main.scss */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-overflow: ellipsis;
+  width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* line 22, ../../src/styles/main.scss */
+
+.section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* line 28, ../../src/styles/main.scss */
+
+.navbar-brand-center {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 34, ../../src/styles/main.scss */
+
+.navbar-app {
+  background: #86868B;
+  color: #FFFFFF;
+}
+
+/* line 38, ../../src/styles/main.scss */
+
+.navbar-app span {
+  padding: 0px 10px 0 10px;
+}
+
+/* line 42, ../../src/styles/main.scss */
+
+.navbar-app .btn-navbar,
+.navbar-app .btn {
+  background: none;
+  border: none;
+  line-height: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+/* line 56, ../../src/styles/main.scss */
+
+.fa {
+  font-weight: bold;
+}
+
+/* line 59, ../../src/styles/main.scss */
+
+a:hover,
+a:focus {
+  color: #C9CBCC;
+}
+
+/* line 63, ../../src/styles/main.scss */
+
+a {
+  color: #FFFFFF;
+}
+
+/* line 68, ../../src/styles/main.scss */
+
+.books .list-group-item {
+  padding: 10px 0px;
+  height: 90px;
+}
+
+/* line 72, ../../src/styles/main.scss */
+
+.books .list-group-item .btn {
+  width: 80px;
+}
+
+/* line 76, ../../src/styles/main.scss */
+
+.books .list-group-item h3 {
+  text-overflow: ellipsis;
+  width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 1.2em;
+}
+
+/* line 86, ../../src/styles/main.scss */
+
+.books .media-body span {
+  text-overflow: ellipsis;
+  width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 1.2em;
+}
+
+/* line 95, ../../src/styles/main.scss */
+
+.books .swipeslide {
+  left: 0;
+}
+
+/* line 96, ../../src/styles/main.scss */
+
+.books .swipehide {
+  left: -100px;
+}
+
+/* line 97, ../../src/styles/main.scss */
+
+.books .swipeslide {
+  position: relative;
+}
+
+/* line 98, ../../src/styles/main.scss */
+
+.books .swipeslide,
+.books .swipehide {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+/* line 100, ../../src/styles/main.scss */
+
+.books .item-actions {
+  height: 90px;
+}
+
+/* line 103, ../../src/styles/main.scss */
+
+.books .item-actions .btn {
+  height: 100%;
+}
+
+/* line 109, ../../src/styles/main.scss */
+
+.item-avatar,
+.item-avatar .item-content,
+.item-avatar-left,
+.item-avatar-left .item-content {
+  padding-left: 70px;
+  min-height: 70px;
+}
+
+/* line 114, ../../src/styles/main.scss */
+
+.item-avatar > img:first-child,
+.item-avatar .item-image,
+.item-avatar .item-content > img:first-child,
+.item-avatar .item-content .item-image,
+.item-avatar-left > img:first-child,
+.item-avatar-left .item-image,
+.item-avatar-left .item-content > img:first-child,
+.item-avatar-left .item-content .item-image {
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  max-width: 50px;
+  max-height: 60px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* line 125, ../../src/styles/main.scss */
+
+.item-avatar-right,
+.item-avatar-right .item-content {
+  padding-right: 70px;
+  min-height: 70px;
+}
+
+/* line 130, ../../src/styles/main.scss */
+
+.item-avatar-right > img:first-child,
+.item-avatar-right .item-image,
+.item-avatar-right .item-content > img:first-child,
+.item-avatar-right .item-content .item-image {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* line 141, ../../src/styles/main.scss */
+
+.item-thumbnail-left,
+.item-thumbnail-left .item-content {
+  padding-left: 105px;
+  min-height: 100px;
+}
+
+/* line 146, ../../src/styles/main.scss */
+
+.item-thumbnail-left > img:first-child,
+.item-thumbnail-left .item-image,
+.item-thumbnail-left .item-content > img:first-child,
+.item-thumbnail-left .item-content .item-image {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  max-width: 80px;
+  max-height: 80px;
+  width: 100%;
+}
+
+/* line 156, ../../src/styles/main.scss */
+
+.item-avatar.item-complex,
+.item-avatar-left.item-complex,
+.item-thumbnail-left.item-complex {
+  padding-left: 0;
+}
+
+/* Error handling and validation */
+
+/* line 162, ../../src/styles/main.scss */
+
+.pristine.true,
+.dirty.true,
+.invalid.true {
+  background: gray;
+}
+
+/* line 166, ../../src/styles/main.scss */
+
+.valid.false {
+  background: red;
+}
+
+/* line 170, ../../src/styles/main.scss */
+
+.valid.true {
+  background: green;
+}
+
+/* line 174, ../../src/styles/main.scss */
+
+.error {
+  color: red;
+}
+
+/* line 178, ../../src/styles/main.scss */
+
+.warning {
+  color: orange;
+}

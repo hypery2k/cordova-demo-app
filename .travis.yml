@@ -1,0 +1,10 @@
+language: objective-c
+env:
+  - PLATFORM=ios
+  - PLATFORM=android
+script:
+  - grunt "ci:$PLATFORM" "$PLATFORM"
+before_install:
+  - npm install --global grunt-cli bower cordova
+  - npm install
+  - bower install

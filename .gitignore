@@ -1,2 +1,8 @@
 # OS X
 .DS_Store
+bin/*
+bower_components/*
+node_modules/*
+platforms/*
+www/*
+.sass-cache/*
