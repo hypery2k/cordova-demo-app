@@ -5,7 +5,7 @@ install:
   - node --version
   - npm --version
   - gem install compass
-  - npm install -g grunt-cli bower cordova
+  - npm install -g grunt-cli bower cordova npm@next
   - npm install
   - bower install
 
