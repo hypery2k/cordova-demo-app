@@ -5,6 +5,8 @@ env:
 script:
   - grunt "ci:$PLATFORM" "$PLATFORM"
 before_install:
+  - node --version
+  - npm --version
   - sudo gem install compass
   - npm install -g grunt-cli bower cordova ios-sim
   - npm install

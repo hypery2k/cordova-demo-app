@@ -2,8 +2,10 @@
 # http://www.appveyor.com/docs/appveyor-yml
 
 install:
+  - node --version
+  - npm --version
   - gem install compass
-  - npm install --global grunt-cli bower cordova npm
+  - npm install -g grunt-cli bower cordova
   - npm install
   - bower install
 
