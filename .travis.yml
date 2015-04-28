@@ -6,6 +6,6 @@ script:
   - grunt "ci:$PLATFORM" "$PLATFORM"
 before_install:
   - sudo gem install compass
-  - npm install --global grunt-cli bower cordova
+  - npm install -g grunt-cli bower cordova ios-sim
   - npm install
   - bower install
