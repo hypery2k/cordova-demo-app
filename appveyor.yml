@@ -3,7 +3,7 @@
 
 install:
   - gem install compass
-  - npm install --global grunt-cli bower cordova
+  - npm install --global grunt-cli bower cordova npm
   - npm install
   - bower install
 
