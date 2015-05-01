@@ -125,6 +125,22 @@ module.exports = function(grunt) {
         }
       }
     },
+   'string-replace': {
+        inline: {
+            files: {
+                'www/': 'styles/**',
+            },
+            options: {
+                replacements: [
+                  // place files inline example
+                    {
+                        pattern: /\?.*?(["|'|\)])/gi,
+                     replacement: '$1'
+                    }
+                 ]
+            }
+        }
+    },
     useminPrepare: {
       html: '<%= app.src %>/index.html',
       options: {
@@ -333,7 +349,8 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'copy:dist',
-    'usemin'
+    'usemin',
+    'string-replace'
   ]);
 
   grunt.registerTask('release', [
@@ -346,7 +363,8 @@ module.exports = function(grunt) {
     'ngmin',
     'cssmin',
     'uglify',
-    'usemin'
+    'usemin',
+    'string-replace'
   ]);
 
   grunt.registerTask('default', [
