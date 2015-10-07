@@ -321,7 +321,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test:ios', ['shell:buildIOS']);
   grunt.registerTask('test:android', ['shell:buildAndroid']);
   grunt.registerTask('ci:ios', ['setup:ios', 'release', 'shell:prepareIOS']);
-  grunt.registerTask('ci:android', ['setup:ios', 'release', 'shell:prepareAndroid']);
+  grunt.registerTask('ci:android', ['setup:android', 'release', 'shell:prepareAndroid']);
   grunt.registerTask('ios', ['clean', 'release', 'test:ios']);
   grunt.registerTask('android', ['clean', 'release', 'test:android']);
 
