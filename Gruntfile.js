@@ -286,20 +286,26 @@ module.exports = function(grunt) {
           maxBuffer: Infinity
         }
       },
-      buildIOS: {
+      prepareIOS: {
         command: 'cordova platform add ios && cordova build ios'
       },
-      buildAndroid: {
+      prepareAndroid: {
         command: 'source ~/.android-sdk-installer/env && cordova platform add android && cordova build android'
+      },
+      buildIOS: {
+        command: 'cordova build ios'
+      },
+      buildAndroid: {
+        command: 'cordova build android'
       }
     }
   });
 
-  grunt.registerTask('ci:ios', 'Set up CI for iOS (noop)', function() {
+  grunt.registerTask('setup:ios', 'Set up CI for iOS (noop)', function() {
     //
   });
 
-  grunt.registerTask('ci:android', 'Set up CI for Android (noop)', function() {
+  grunt.registerTask('setup:android', 'Set up CI for Android (noop)', function() {
     var done = this.async();
 
     var setup = require('child_process').spawn('./etc/setupAndroidSDK.sh');
@@ -313,11 +319,10 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test:ios', ['shell:buildIOS']);
-
   grunt.registerTask('test:android', ['shell:buildAndroid']);
-
+  grunt.registerTask('ci:ios', ['setup:ios','shell:prepareIOS']);
+  grunt.registerTask('ci:android', ['setup:ios','shell:prepareAndroid']);
   grunt.registerTask('ios', ['clean', 'release', 'test:ios']);
-
   grunt.registerTask('android', ['clean', 'release', 'test:android']);
 
   grunt.registerTask('server', function(target) {
