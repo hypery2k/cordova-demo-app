@@ -296,7 +296,7 @@ module.exports = function(grunt) {
         command: 'cordova build ios'
       },
       buildAndroid: {
-        command: 'cordova build android'
+        command: 'source ~/.android-sdk-installer/env && cordova build android'
       }
     }
   });
