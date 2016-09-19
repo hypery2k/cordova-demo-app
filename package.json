@@ -52,6 +52,8 @@
     "node": ">=0.8.0"
   },
   "scripts": {
+    "build": "grunt build",
+    "release": "grunt release",
     "test": "grunt test"
   },
   "license": "Apache version 2.0"
