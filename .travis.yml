@@ -23,11 +23,11 @@ before_install:
   - echo no | android create avd --force -n android-21 -t android-21 --abi armeabi-v7a
   - echo no | android create avd --force -n android-22 -t android-22 --abi armeabi-v7a
   - echo no | android create avd --force -n android-23 -t android-23 --abi armeabi-v7a
-  - npm install -g cordova@$CORDOVA_VERSION
+  - npm install -g cordova@$CORDOVA_VERSION ios-sim
   - echo $JAVA_HOME
   - node --version
   - npm --version
   - sudo gem install compass
-  - npm install -g grunt-cli bower ios-sim
+  - npm install -g grunt-cli npm
   - npm install
   - bower install
