@@ -1,11 +1,15 @@
 language: objective-c
 env:
-  - CORDOVA_VERSION=latest
-  - CORDOVA_VERSION=6.1.1
-  - CORDOVA_VERSION=6.0.0
-  - PLATFORM=ios
-  - PLATFORM=android
+  matrix:
+  - CORDOVA_VERSION=latest PLATFORM=android
+  - CORDOVA_VERSION=6.1.1 PLATFORM=android
+  - CORDOVA_VERSION=6.0.0 PLATFORM=android
+  - CORDOVA_VERSION=latest PLATFORM=ios
+  - CORDOVA_VERSION=6.1.1 PLATFORM=ios
+  - CORDOVA_VERSION=6.0.0 PLATFORM=ios
+
 script:
+  - npm run clean
   - npm run "build-$PLATFORM"
 before_install:
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
