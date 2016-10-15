@@ -1,10 +1,10 @@
 # OS X
 .DS_Store
-
-.tmp
+.idea/
+.tmp/
+.sass-cache/
 bin/*
-bower_components/*
-node_modules/*
-platforms/*
-www/*
-.sass-cache/*
+bower_components/
+node_modules/
+platforms/
+www/

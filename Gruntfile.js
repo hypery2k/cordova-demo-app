@@ -7,6 +7,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-karma');
 
+
   grunt.initConfig({
     app: {
       // configurable paths
@@ -125,21 +126,21 @@ module.exports = function(grunt) {
         }
       }
     },
-   'string-replace': {
-        inline: {
-            files: {
-                'www/': 'styles/**',
-            },
-            options: {
-                replacements: [
-                  // place files inline example
-                    {
-                        pattern: /\?.*?(["|'|\)])/gi,
-                     replacement: '$1'
-                    }
-                 ]
+    'string-replace': {
+      inline: {
+        files: {
+          'www/': 'styles/**',
+        },
+        options: {
+          replacements: [
+            // place files inline example
+            {
+              pattern: /\?.*?(["|'|\)])/gi,
+              replacement: '$1'
             }
+          ]
         }
+      }
     },
     useminPrepare: {
       html: '<%= app.src %>/index.html',
@@ -258,23 +259,17 @@ module.exports = function(grunt) {
         html: ['<%= app.dist %>/*.html']
       }
     },
-    ngmin: {
-      dist: {
+    ngAnnotate: {
+      options: {
+        singleQuotes: true,
+      },
+      app: {
         files: [{
           expand: true,
-          cwd: '<%= app.dist %>/scripts',
-          src: ['*.js', '!webworker*.js'],
+          cwd: '<%= app.src %>/scripts',
+          src: ['{,*/}*.js', '!webworker*.js'],
           dest: '<%= app.dist %>/scripts'
         }]
-      }
-    },
-    uglify: {
-      dist: {
-        files: {
-          '<%= app.dist %>/scripts/scripts.js': [
-            '<%= app.dist %>/scripts/scripts.js'
-          ]
-        }
       }
     },
     shell: {
@@ -290,38 +285,21 @@ module.exports = function(grunt) {
         command: 'cordova platform add ios && cordova build ios'
       },
       prepareAndroid: {
-        command: 'source ~/.android-sdk-installer/env && cordova platform add android && cordova build android'
+        command: 'cordova platform add android && cordova build android'
       },
       buildIOS: {
         command: 'cordova build ios'
       },
       buildAndroid: {
-        command: 'source ~/.android-sdk-installer/env && cordova build android'
+        command: 'cordova build android'
       }
     }
   });
 
-  grunt.registerTask('setup:ios', 'Set up CI for iOS (noop)', function() {
-    //
-  });
-
-  grunt.registerTask('setup:android', 'Set up CI for Android (noop)', function() {
-    var done = this.async();
-
-    var setup = require('child_process').spawn('./etc/setupAndroidSDK.sh');
-
-    setup.stdout.pipe(process.stdout);
-    setup.stderr.pipe(process.stderr);
-
-    setup.on('close', function(code) {
-      done(code === 0);
-    });
-  });
-
   grunt.registerTask('test:ios', ['shell:buildIOS']);
   grunt.registerTask('test:android', ['shell:buildAndroid']);
-  grunt.registerTask('ci:ios', ['setup:ios', 'release', 'shell:prepareIOS']);
-  grunt.registerTask('ci:android', ['setup:android', 'release', 'shell:prepareAndroid']);
+  grunt.registerTask('build:ios', [ 'release', 'shell:prepareIOS']);
+  grunt.registerTask('build:android', ['release', 'shell:prepareAndroid']);
   grunt.registerTask('ios', ['clean', 'release', 'test:ios']);
   grunt.registerTask('android', ['clean', 'release', 'test:android']);
 
@@ -350,10 +328,13 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
+    'concat:generated',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
     'copy:dist',
+    'ngAnnotate',
+    'cssmin:generated',
+    'uglify:generated',
     'usemin',
     'string-replace'
   ]);
@@ -363,11 +344,11 @@ module.exports = function(grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
+    'concat:generated',
     'copy:dist',
-    'ngmin',
-    'cssmin',
-    'uglify',
+    'ngAnnotate',
+    'cssmin:generated',
+    'uglify:generated',
     'usemin',
     'string-replace'
   ]);
